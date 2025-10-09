@@ -1,6 +1,9 @@
 from turtle import Screen, Turtle
+
+from python_games.snake_game.scoreboard import Scoreboard
 from snake import Snake
 from food import Food
+from scoreboard import Scoreboard
 import time
 
 screen = Screen()
@@ -12,6 +15,7 @@ screen.tracer(0) # turning off tracer
 
 snake = Snake()
 food = Food()
+scoreboard = Scoreboard()
 
 screen.listen()
 screen.onkey(snake.up,'Up')
@@ -25,10 +29,11 @@ while game_is_on:
     time.sleep(0.1) # Adjusts the speed
     snake.move()
 
-# Distance metoden (från Turtle) jämför distansen från turtlen till de angivna koordinaterna eller annan turtle.
+    # Distance metoden (från Turtle) jämför distansen från turtlen till de angivna koordinaterna eller annan turtle.
 
-if snake.head.distance(food) < 15:
-    food.refresh()
+    if snake.head.distance(food) < 15:
+        food.refresh()
+        scoreboard.increase_score()
 
 
 screen.exitonclick()
