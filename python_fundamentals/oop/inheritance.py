@@ -13,7 +13,11 @@ class SeiWhale(Whale):
     pass
 
 class BlueWhale(Whale):
-    pass
+    def __init__(self,name): # I need to declare these arguments so they can be recevied when constructing.
+        super().__init__(name)
+
+    def longtravel(self):
+        print(f'{self.name} is commencing a long distance travel..')
 
 seiWhale = SeiWhale('Sey')
 blueWhale = BlueWhale('Blo')
@@ -21,3 +25,8 @@ blueWhale = BlueWhale('Blo')
 print(blueWhale.name)
 print(blueWhale.is_alive)
 blueWhale.eat()
+
+print(seiWhale.name)
+print(seiWhale.is_alive)
+
+blueWhale.longtravel()
