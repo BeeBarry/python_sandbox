@@ -25,5 +25,10 @@ while game_is_on:
     time.sleep(0.1) # Adjusts the speed
     snake.move()
 
+# Distance metoden (från Turtle) jämför distansen från turtlen till de angivna koordinaterna eller annan turtle.
+
+if snake.head.distance(food) < 15:
+    food.refresh()
+
 
 screen.exitonclick()
